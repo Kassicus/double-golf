@@ -11,7 +11,7 @@ class Ball():
         self.x_velocity = 5
         self.y_velocity = 5
 
-        self.friction = .2
+        self.friction = 0.00002
 
         self.x_offset = 0
         self.y_offset = 0
@@ -20,15 +20,8 @@ class Ball():
         pygame.draw.circle(surface, color.white, (self.x, self.y), self.radius)
 
     def update(self, parent):
-        if self.x_velocity < 0:
-            self.x_velocity += self.friction
-        if self.x_velocity > 0:
-            self.x_velocity -= self.friction
-        
-        if self.y_velocity < 0:
-            self.y_velocity += self.friction
-        if self.y_velocity > 0:
-            self.y_velocity -= self.friction
+        self.x_velocity = self.x_velocity * self.friction
+        self.y_velocity = self.y_velocity * self.friction
 
         self.x += self.x_velocity
         self.y += self.y_velocity

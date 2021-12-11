@@ -7,7 +7,7 @@ class Club():
         self.primary_ball = _primary
         self.secondary_ball = _secondary
 
-        self.dampener = 50
+        self.dampener = 1
 
         self.mouse_x, self.mouse_y = pygame.mouse.get_pos()
 
@@ -25,8 +25,8 @@ class Club():
         self.x_offset = self.mouse_x - self.primary_ball.x
         self.y_offset = self.mouse_y - self.primary_ball.y
 
-        change_x_velocity = (-self.x_offset / self.dampener)
-        change_y_velocity = (-self.y_offset / self.dampener)
+        change_x_velocity = (-self.x_offset * self.dampener)
+        change_y_velocity = (-self.y_offset * self.dampener)
 
         for event in events:
             if event.type == pygame.MOUSEBUTTONDOWN:

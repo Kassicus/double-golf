@@ -2,6 +2,7 @@ import pygame
 import color
 import objects
 import maps
+import random
 
 pygame.init()
 
